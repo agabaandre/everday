@@ -1,0 +1,208 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-menu-button slot="start" *ngIf="!config.appNavigationTabs">
+            <ion-icon name="menu"></ion-icon>
+        </ion-menu-button>
+
+        <ion-img src="assets/logo_header.png" alt="logo" style="height:40%; width:80%; margin:0 auto;"></ion-img>
+
+        <ion-buttons slot="end" *ngIf="!config.appNavigationTabs">
+            <ion-button fill="clear" routerLink="/search" routerDirection="forward">
+                <ion-icon slot="icon-only" name="search"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" routerLink="/cart" routerDirection="forward">
+                <ion-icon name="basket"></ion-icon>
+                <ion-badge color="secondary">{{shared.cartTotalItems()}}</ion-badge>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+
+
+    <app-banner></app-banner>
+
+    <ion-img class="product-catgory-image" src=" assets/categories.png " alt="logo " (click)="openCategoryPage()" style="width:192"></ion-img>
+
+
+    <!-- categories component -->
+    <app-categories [type]="'withName'"></app-categories>
+
+    <!-- For On Sale items -->
+
+
+    <!--on sale banner-->
+    <ion-img class="product-catgory-image" src=" assets/discounted.png " alt="logo "></ion-img>
+
+
+    <div>
+        <ion-slides [options]="sliderConfig">
+
+            <ion-slide *ngFor="let p of shared.tab2 ">
+                <app-product [data]="p " [type]=" 'normal' "></app-product>
+            </ion-slide>
+        </ion-slides>
+
+    </div>
+
+    <!-- For Vendor List -->
+    <app-vendor-list></app-vendor-list>
+
+    <!--Sub Categories-->
+    <ion-button id="second " fill="clear " style="margin:0 auto; ">
+        <ion-icon slot="end " name="caret-forward "></ion-icon>
+        {{ ' Shop by Sub-categories' }}
+    </ion-button>
+
+    <ion-row style="margin:7px; ">
+        <ion-slides class="subcat " [options]="sliderConfig ">
+            <ion-slide class="subscats col col-50 " [class.selected]="selected==c.id " *ngFor="let c of shared.allCategories " (click)="openSubCategories(c.id) ">
+                <ion-item *ngIf="c!=1">
+                    <img *ngIf="c.image " src="{{c.image.src}} ">
+                    <ion-text>
+                        <h6 style="text-align: center; overflow: hidden; margin-left:1px;     text-overflow: ellipsis; white-space: nowrap;">{{c.name}}</h6>
+                    </ion-text>
+                </ion-item>
+                <ion-item *ngIf="c==1" class="skeleton-name">
+                    <ion-skeleton-text animated>
+                    </ion-skeleton-text>
+                    <p>
+                        <ion-skeleton-text animated>
+                        </ion-skeleton-text>
+                    </p>
+                </ion-item>
+
+            </ion-slide>
+        </ion-slides>
+    </ion-row>
+    <ion-img class="product-catgory-image " src=" assets/1.png " alt="logo " (click)="openSubCategories( '16') "></ion-img>
+
+    <!--product category sliders-->
+    <!--Farms-->
+    <div class="product-slider ">
+        <ion-slides [options]=" sliderConfig ">
+
+
+            <ion-slide *ngFor="let p of shared.farms " id="{{16}} ">
+                <app-product [data]="p " [type]=" 'normal' "></app-product>
+            </ion-slide>
+            <ion-slide>
+                <ion-button id="second " fill="clear " (click)="openSubCategories( '16') ">
+                    <ion-icon slot="end " name="caret-forward "></ion-icon>
+                    {{ 'View More' | translate }}
+                </ion-button>
+            </ion-slide>
+        </ion-slides>
+    </div>
+
+    <ion-img class="product-catgory-image " src=" assets/2.png " alt="logo " (click)="openSubCategories(35) "></ion-img>
+
+
+    <div class=" product-slider ">
+        <ion-slides [options]=" sliderConfig ">
+
+            <ion-slide *ngFor="let p of shared.biscuit " id="{{35}} ">
+                <app-product [data]="p " [type]=" 'normal' "></app-product>
+            </ion-slide>
+            <ion-slide>
+                <ion-button id="second " fill="clear " (click)="openSubCategories( '35') ">
+                    <ion-icon slot="end " name="caret-forward "></ion-icon>
+                    {{ 'View More' | translate }}
+                </ion-button>
+            </ion-slide>
+        </ion-slides>
+
+
+    </div>
+
+
+    <ion-img class="product-catgory-image " src=" assets/4.png " alt="logo " (click)="openSubCategories(34) "></ion-img>
+
+
+    <div class=" product-slider ">
+        <ion-slides [options]=" sliderConfig ">
+
+            <ion-slide *ngFor="let p of shared.confectionary " id="{{34}} ">
+                <app-product [data]="p " [type]=" 'normal' "></app-product>
+            </ion-slide>
+            <ion-slide>
+                <ion-button id="second " fill="clear " (click)="openSubCategories( '34') ">
+                    <ion-icon slot="end " name="caret-forward "></ion-icon>
+                    {{ 'View More' | translate }}
+                </ion-button>
+            </ion-slide>
+
+        </ion-slides>
+
+
+    </div>
+
+    <ion-img class="product-catgory-image " src=" assets/5.png " alt="logo " (click)="openSubCategories(32) "></ion-img>
+
+
+    <div class=" product-slider ">
+        <ion-slides [options]=" sliderConfig ">
+
+            <ion-slide *ngFor="let p of shared.bakery " id="{{32}} ">
+                <app-product [data]=" p " [type]=" 'normal' "></app-product>
+
+            </ion-slide>
+            <ion-slide>
+                <ion-button id="second " fill="clear " (click)="openSubCategories( '32') ">
+                    <ion-icon slot="end " name="caret-forward "></ion-icon>
+                    {{ 'View More' | translate }}
+                </ion-button>
+            </ion-slide>
+
+
+        </ion-slides>
+
+
+    </div>
+    <!--Infinity slider test Farm-->
+
+    <!-- <ion-slides (ionSlideDidChange)="getFarm() " [options]=" sliderConfig ">
+        <ion-slide *ngFor="let p of products " size="6 " class="ion-no-padding ">
+
+            <app-product [data]="p " [type]=" 'normal' "></app-product>
+
+        </ion-slide>
+    </ion-slides> -->
+
+    <!--All products Slider-->
+    <div class="more-products">
+
+
+        <ion-button id="second " fill="clear " style="margin-top:5px; ">
+            <ion-icon slot="end " name="caret-forward "></ion-icon>
+            {{ 'More Products' | translate }}
+        </ion-button>
+
+        <!--infinity test all products-->
+        <ion-img *ngIf="shared.banners.length!=0" src="{{shared.banners[shared.banners.length-1].banners_image}}"></ion-img>
+
+
+        <!-- infinite scroll -->
+        <ion-grid class="ion-no-padding ">
+            <ion-row class="ion-no-padding ">
+                <ion-col *ngFor="let p of products " size="6 " class="ion-no-padding ">
+                    <app-product [data]="p " [type]=" 'normal' "></app-product>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    </div>
+    <ion-infinite-scroll #infinite (ionInfinite)="getProducts() " threshold="25%">
+        <ion-infinite-scroll-content loadingSpinner="lines" loadingText="Loading more Products...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>
+<ion-fab vertical="bottom " horizontal="end " *ngIf="scrollTopButton ">
+    <ion-fab-button color="secondary " (click)="scrollToTop() ">
+        <i class="fa fa-angle-double-up"></i>
+
+    </ion-fab-button>
+</ion-fab>

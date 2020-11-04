@@ -1,0 +1,55 @@
+.site-logo,
+footer,
+.joinchat,
+#wpadminbar,
+#wpmc-back-to-cart,
+.cancel,
+#footer-inner,
+.elementor-location-footer {
+    display: none !important;
+}
+
+input[type=text],
+input[type=tel],
+input[type=email],
+input[type=password],
+input[type=number],
+textarea {
+    border: 0!important;
+    border-bottom: 2px solid #bbb5b5!important;
+    outline: none!important;
+    transition: .2s ease-in-out!important;
+    box-sizing: border-box!important;
+}
+
+input[type=submit] {
+    clear: both;
+    width: 100% !important;
+    height: 3re!important;
+    font-size: 1.5rem!important;
+}
+
+
+/* Interation */
+
+input:valid,
+input:focus {
+    border-bottom: 2px solid #bbb5b5!important;
+}
+
+input:valid+label,
+input:focus+label {
+    color: #26a69a!important;
+    font-size: 1.5rem!important;
+    top: -30px!important;
+}
+
+#place_order {
+    clear: both;
+    min-width: 100%;
+    margin: 0 auto !important;
+}
+
+#wpmc-prev {
+    display: none !important;
+}

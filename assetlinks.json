@@ -1,0 +1,10 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+        "namespace": "android_app",
+        "package_name": "com.everdayfarms.market",
+        "sha256_cert_fingerprints": [
+            "C6:34:FE:2D:FA:3F:D2:47:79:D3:64:87:4F:CA:A3:58:02:18:DB:4C:6B:98:0D:8D:61:5A:E2:BB:4A:C4:4A:C1"
+        ]
+    }
+}]

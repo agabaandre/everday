@@ -1,0 +1,32 @@
+{
+    "project_info": {
+        "project_number": "475581597612",
+        "firebase_url": "https://everyday-farms-push.firebaseio.com",
+        "project_id": "everyday-farms-push",
+        "storage_bucket": "everyday-farms-push.appspot.com"
+    },
+    "client": [{
+        "client_info": {
+            "mobilesdk_app_id": "1:475581597612:android:0859e076bf863c86411c09",
+            "android_client_info": {
+                "package_name": "com.everydayfarms.market"
+            }
+        },
+        "oauth_client": [{
+            "client_id": "475581597612-qkrscht7j0vc5vg2eeqec1j0avda640f.apps.googleusercontent.com",
+            "client_type": 3
+        }],
+        "api_key": [{
+            "current_key": "AIzaSyCilaLOb2ylDifHoM7gd4yVfjmBnAY2pqM"
+        }],
+        "services": {
+            "appinvite_service": {
+                "other_platform_oauth_client": [{
+                    "client_id": "475581597612-qkrscht7j0vc5vg2eeqec1j0avda640f.apps.googleusercontent.com",
+                    "client_type": 3
+                }]
+            }
+        }
+    }],
+    "configuration_version": "1"
+}
